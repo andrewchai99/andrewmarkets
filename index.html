@@ -52,6 +52,7 @@
     font-size: 15px;
     line-height: 1.55;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
 
   img{ max-width: 100%; }
@@ -113,6 +114,8 @@
     justify-content: space-between;
     gap: 24px;
     padding-block: 16px;
+    flex-wrap: wrap;
+    row-gap: 10px;
   }
   .brand{
     display: flex;
@@ -204,6 +207,13 @@
   @media (max-width: 860px){
     .navlinks{ display: none; }
   }
+  @media (max-width: 480px){
+    .brand{ font-size: 12.5px; gap: 7px; }
+    .brand .mark{ width: 20px; height: 20px; }
+    .navcta{ gap: 8px; }
+    .navcta .btn.ghost{ display: none; }
+    .navcta .btn.primary{ padding: 10px 16px; font-size: 12.5px; }
+  }
 
   /* ---------- ticker ---------- */
   .ticker{
@@ -266,6 +276,10 @@
   }
   @media (max-width: 900px){
     .hero .wrap{ grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px){
+    .hero{ padding-block: 44px 40px; }
+    .hero .wrap{ gap: 36px; }
   }
   .hero h1{
     font-size: clamp(38px, 5.4vw, 66px);
@@ -400,6 +414,12 @@
     gap: 12px;
     margin-bottom: 16px;
   }
+  @media (max-width: 400px){
+    .ticket-row{ flex-direction: column; gap: 16px; }
+    .terminal-head{ padding: 16px 18px 14px; }
+    .chart-box{ padding: 12px 16px 0; }
+    .ticket{ padding: 18px 16px 20px; }
+  }
   .field{ flex: 1; min-width: 0; }
   .field label{
     display: block;
@@ -516,6 +536,10 @@
   .section-head{ max-width: 60ch; margin-bottom: 36px; }
   .section-head h2{ font-size: clamp(26px, 3.2vw, 36px); margin-top: 10px; letter-spacing: -0.01em; }
   .section-head p{ color: var(--muted); margin-top: 12px; font-size: 15px; }
+  @media (max-width: 600px){
+    section{ padding-block: 44px; }
+    .section-head{ margin-bottom: 26px; }
+  }
 
   /* mechanics */
   .mechanics{ display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
@@ -646,6 +670,11 @@
   }
   .ctaband h2{ font-size: 24px; margin-bottom: 6px; font-weight: 600; }
   .ctaband p{ color: var(--muted); margin: 0; font-size: 14px; }
+  .ctaband-actions{ display: flex; gap: 12px; flex-wrap: wrap; }
+  @media (max-width: 420px){
+    .ctaband-actions{ flex-direction: column; width: 100%; }
+    .ctaband-actions .btn{ width: 100%; }
+  }
 
   /* footer */
   footer{ padding-block: 40px 48px; padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px)); }
@@ -656,6 +685,7 @@
     margin-bottom: 32px;
   }
   @media (max-width: 760px){ .foot-grid{ grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px){ .foot-grid{ grid-template-columns: 1fr; gap: 26px; } }
   .foot-grid h4{ font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0 0 14px; }
   .foot-grid ul{ list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 9px; font-size: 13.5px; }
   .foot-grid a{ transition: color .15s ease; }
@@ -941,7 +971,7 @@
         <h2>Ready to place your first position?</h2>
         <p>Open a live account in minutes, or practise first with £10,000 in virtual funds.</p>
       </div>
-      <div style="display:flex; gap:12px;">
+      <div class="ctaband-actions">
         <a class="btn ghost" href="#">Try the demo</a>
         <a class="btn primary" href="#">Open an account</a>
       </div>
